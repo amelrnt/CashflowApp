@@ -33,7 +33,12 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 20,
               ),
-              const Text('Buku Kas'),
+              const Text('Buku Kas',
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               Form(
                 key: _formKey,
                 child: Container(
@@ -66,6 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: InputDecoration(
                           border: const UnderlineInputBorder(),
                           labelText: 'password',
+                          prefixIcon: const Icon(Icons.person_outline),
                           suffixIcon: IconButton(
                           icon: Icon(
                             // Based on passwordVisible state choose the icon

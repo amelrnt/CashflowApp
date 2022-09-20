@@ -28,8 +28,7 @@ class SqliteService {
     final result = await db.insert(
       'Dana', dana.toMap(), 
       conflictAlgorithm: ConflictAlgorithm.replace);
-    print('add new data');
-    print(result);
+    print('add new data $result');
     return result;
   }
 
@@ -41,28 +40,34 @@ class SqliteService {
 
   static Future<int> getExpanseTotal()async {
     final db = await SqliteService.db();
-    int total = 0;
+    var total=0;
     db.query('Dana');
     List<Map<String, dynamic>> listDana = await SqliteService.getAll();
     for (var i = 0; i < listDana.length; i++) {
       if (listDana[i]['status'] == 0) {
-        total+= int.parse(listDana[i]['jumlah']);
+        var cash = listDana[i]['jumlah'].toString();
+
+        total += int.parse(cash);
       }
     }
+    // print(total.toString());
     return total;
   }
 
   static Future<int> getIncomeTotal()async {
     final db = await SqliteService.db();
-    int total = 0;
+    var total1=0;
     db.query('Dana');
-    List<Map<String, dynamic>> listDana = await SqliteService.getAll();;
+    List<Map<String, dynamic>> listDana = await SqliteService.getAll();
     for (var i = 0; i < listDana.length; i++) {
       if (listDana[i]['status'] == 1) {
-        total+= int.parse(listDana[i]['jumlah']);
+        var cash = listDana[i]['jumlah'].toString();
+
+        total1 += int.parse(cash);
       }
     }
-    return total;
+    // print(total1.toString());
+    return total1;
   }
   
 }

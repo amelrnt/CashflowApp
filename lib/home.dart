@@ -34,10 +34,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _getExpanse();
     _getIncome();
+    _getExpanse();
   }
 
 
@@ -48,121 +47,139 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Cash Flow App'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal:30, vertical:15),
-            child: Column(
-              children: <Widget>[
-                const Text(
-                  'Rangkuman Bulan ini',
-                  style:  TextStyle(
-                    fontSize: 20,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal:30, vertical:15),
+          child: Column(
+            children: <Widget>[
+              const Text(
+                'Rangkuman Bulan ini',
+                style:  TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              Text(
+                'Pengeluaran : Rp.$pengeluaran',
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.red,
+                ),
+              ),
+              Text(
+                'Pemasukan : Rp.$pemasukan',
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.green,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const SizedBox(
+                width: double.infinity,
+                height: 200,
+                //child: Image.network('https://www.metabase.com/images/posts/the-perfect-chart_choosing-the-right-visualization-for-every-scenario.svg'),
+                child: Chart(),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const IncomePage()))
+                          .then((_) => setState(() {
+                            _getIncome();
+                            _getExpanse();
+                          }));
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset('images/income.png'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text('Tambah Pemasukan'),
+                        ]
+                      ),
+                    ),
                   ),
-                ),
-                Text(
-                  'Pengeluaran : Rp.\$pengeluaran',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.red,
+                  const SizedBox(
+                    width: 10,
                   ),
-                ),
-                Text(
-                  'Pemasukan : Rp.\$pemasukan',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.green,
+                  Expanded(
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const ExpansePage()))
+                          .then((_) => setState(() {
+                            _getIncome();
+                            _getExpanse();
+                          }));
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset('images/expenses.png'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text('Tambah Pengeluaran'),
+                        ]
+                      ),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const SizedBox(
-                  width: double.infinity,
-                  height: 200,
-                  //child: Image.network('https://www.metabase.com/images/posts/the-perfect-chart_choosing-the-right-visualization-for-every-scenario.svg'),
-                  child: Chart(),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Expanded(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const IncomePage()));
-                        },
-                        child: Column(
-                          children: [
-                            Image.asset('images/income.png'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text('Tambah Pemasukan'),
-                          ]
-                        ),
+                ]
+              ),
+              const SizedBox(
+                height: 10
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const DetailPage()))
+                          .then((_) => setState(() {}));
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset('images/info.png'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text('Detail Cashflow'),
+                        ]
                       ),
                     ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ExpansePage()));
-                        },
-                        child: Column(
-                          children: [
-                            Image.asset('images/expenses.png'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text('Tambah Pengeluaran'),
-                          ]
-                        ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => const SettingPage()))
+                          .then((_) => setState(() {}));
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset('images/gear.png'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const Text('Pengaturan'),
+                        ]
                       ),
                     ),
-                  ]
-                ),
-                const SizedBox(
-                  height: 10
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailPage()));
-                        },
-                        child: Column(
-                          children: [
-                            Image.asset('images/info.png'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text('Detail Cashflow'),
-                          ]
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
-                        },
-                        child: Column(
-                          children: [
-                            Image.asset('images/gear.png'),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const Text('Pengaturan'),
-                          ]
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
@@ -233,19 +250,19 @@ class _ChartState extends State<Chart> {
   String text;
   switch (value.toInt()) {
     case 1:
-      text = '1m';
+      text = '1k';
       break;
     case 2:
-      text = '2m';
+      text = '2k';
       break;
     case 3:
-      text = '3m';
+      text = '3k';
       break;
     case 4:
-      text = '5m';
+      text = '5k';
       break;
     case 5:
-      text = '6m';
+      text = '6k';
       break;
     default:
       return Container();
@@ -328,7 +345,7 @@ class _ChartState extends State<Chart> {
 
   LineChartBarData get lineChartBarData1_2 => LineChartBarData(
     isCurved: true,
-    color: const Color(0xffaa4cfc),
+    color: Colors.red,
     barWidth: 8,
     isStrokeCapRound: true,
     dotData: FlDotData(show: false),

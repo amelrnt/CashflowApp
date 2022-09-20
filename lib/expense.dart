@@ -132,10 +132,10 @@ class _ExpansePageState extends State<ExpansePage> {
                 onPressed : (){
                   Navigator.pop(context);
                 },
-                child: const Text('<< Kembali'),
                 style:  ElevatedButton.styleFrom(
-                  foregroundColor: Colors.red,
+                  backgroundColor: Colors.red,
                 ),
+                child: const Text('<< Kembali'),
               ),
             ),
             ]

@@ -125,8 +125,8 @@ class _DetailPageState extends State<DetailPage> {
                   Navigator.pop(context);
                 },
                 style:  ElevatedButton.styleFrom(
-                  foregroundColor: Colors.red,
-                ),
+                  backgroundColor: Colors.red,
+                  ),
                 child: const Text('<< Kembali'),
               ),
             ),

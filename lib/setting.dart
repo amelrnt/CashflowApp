@@ -24,6 +24,7 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false, 
       appBar: AppBar(
         title: const Text('Cash Flow App'),
       ),
@@ -117,40 +118,34 @@ class _SettingPageState extends State<SettingPage> {
                   onPressed : (){
                     Navigator.pop(context);
                   },
-                  child: const Text('<< Kembali'),
                   style:  ElevatedButton.styleFrom(
-                  foregroundColor: Colors.red,
-                ),
+                  backgroundColor: Colors.red,
+                  ),
+                child: const Text('<< Kembali'),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.only(
-                  top: 90,
-                ),
-                child: Expanded(
-                  child: Row(
-                    children: [
-                      Image.asset('images/photo.JPG',
-                      width: 100,
-                      height: 100,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text('About this APP',
-                            style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text('Aplikasi ini dibuat oleh'),
-                          Text('Nama : Amelia Rosanti '),
-                          Text('Nim : 2141272007'),
-                          Text('Tanggal : 18 September 2022'),
-                        ],
-                      )
+              Expanded(child: Container()),
+              Row(
+                children: [
+                  Image.asset('images/photo.JPG',
+                  width: 100,
+                  height: 100,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text('About this APP',
+                        style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('Aplikasi ini dibuat oleh'),
+                      Text('Nama : Amelia Rosanti '),
+                      Text('Nim : 2141272007'),
+                      Text('Tanggal : 18 September 2022'),
                     ],
-                  ),
-                ),
+                  )
+                ],
               )
             ]
           ),

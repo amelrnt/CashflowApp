@@ -131,10 +131,10 @@ class _IncomePageState extends State<IncomePage> {
                 onPressed : (){
                   Navigator.pop(context);
                 },
-                child: const Text('<< Kembali'),
                 style:  ElevatedButton.styleFrom(
-                  foregroundColor: Colors.red,
+                  backgroundColor: Colors.red,
                 ),
+                child: const Text('<< Kembali'),
               ),
             ),
             ]
